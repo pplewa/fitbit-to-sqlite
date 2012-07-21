@@ -9,7 +9,7 @@ fitbit-to-sqlite
 Insert your Fitbit user & dev information into the config section in the `app.js` file
 
 	/* --- config --- */
-	var USER_ID         = '2345V8',
+	var USER_ID         = '',
     	CONSUMER_KEY    = '',
 	    CONSUMER_SECRET = '',
 	    DB_NAME         = './fitbit.db',
