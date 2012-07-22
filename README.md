@@ -6,14 +6,14 @@ fitbit-to-sqlite
 
 #### Configuration:
 
-Insert your Fitbit user & dev information into the config section in the `app.js` file
+Insert your Fitbit dev information into the config section in the `app.js` file
 
 	/* --- config --- */
-	var USER_ID         = '',
-    	CONSUMER_KEY    = '',
-	    CONSUMER_SECRET = '',
-	    DB_NAME         = './fitbit.db',
-    	APP_PORT        = 8553;
+	var CONSUMER_KEY    = '',
+    	CONSUMER_SECRET = '',
+	    PERIOD          = 'max', // 1d, 7d, 30d, 1w, 1m, 3m, 6m, 1y, max
+    	DB_NAME         = './fitbit.db',
+	    APP_PORT        = 8553;
 
 
 #### API:
@@ -31,13 +31,12 @@ Insert your Fitbit user & dev information into the config section in the `app.js
 * POST/PUT requests: 
  
 	`/rest/update` - update new data  
-	`/rest/xupdate` - force update all existing data
 
 #### Dependencies:  
 
+* express
 * connect
 * sqlite3
-* dateformat
 * fitbit-js
 
  
