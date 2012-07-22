@@ -62,7 +62,7 @@ app.post('/rest/update', function (req, res) {
     };
 
     logs.forEach(function(log) {
-        fitbit.apiCall('GET', '/user/-/' + log + '/date/today/' + PERIOD + '.json', {token: token}, logData.bind(log));
+        fitbit.apiCall('GET', '/user/-/' + log + '/date/today/' + PERIOD + '.json', { token: token }, logData.bind(log));
     });
 
     res.send(200);
@@ -71,13 +71,11 @@ app.post('/rest/update', function (req, res) {
 // map requests
 app.get(/^\/rest\/(\w+)(?:\/)?(\d{4}-\d{2}-\d{2})?/, function (req, res) {
     if(API_MAP.hasOwnProperty(req.params[0])) {
-        fitbit.apiCall('GET', API_MAP.parseURL(req.params), {token: token}, function(err, resp) {
-            res.writeHead(200, 'application/json');
-            res.end(JSON.stringify(resp));
+        fitbit.apiCall('GET', API_MAP.parseURL(req.params), { token: token }, function(err, resp) {
+            res.json(resp);
         });
     } else {
-        res.writeHead(500, {'Content-Type':'text/html'});
-        res.end();
+        res.send(500);
     }
 });
 
